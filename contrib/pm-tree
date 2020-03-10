@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf '%s\n' "Password Manager"
+tree -C -l --noreport "${PM_DIR:-$HOME/.local/share/pm}" | tail -n +2 | sed -E 's/\.asc(\x1B\[[0-9]+m)?( ->|$)/\1\2/g' # remove .gpg at end of line, but keep colors
+

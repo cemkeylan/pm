@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd "${PM_DIR:-$HOME/.local/share/pm}" || exit 1
+git "$@"

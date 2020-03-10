@@ -1,0 +1,10 @@
+#!/bin/sh
+
+getpass() {
+    pm l | while read -r file ; do
+       basename "$file" | cut -d . -f 1
+    done
+}
+
+choice=$(getpass | dmenu -p "Choose the password that you would like to copy" -l 10)
+[ "$choice" ] && pm s "$choice" | xclip -sel c

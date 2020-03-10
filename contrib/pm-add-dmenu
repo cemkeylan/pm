@@ -1,0 +1,11 @@
+#!/bin/sh
+
+name=$(dmenu -p "Give a name to your password" <&-)
+pass=" "
+
+while ! [ "$pass" = "$pass2" ] ; do
+    pass=$(dmenu -nb black -nf black -p "Enter your password" <&-)
+    pass2=$(dmenu -nb black -nf black -p "Enter your password again" <&-)
+done
+
+printf '%s' "$pass" | pm a "$name"
